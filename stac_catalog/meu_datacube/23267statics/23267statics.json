@@ -1,0 +1,69 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [],
+  "id": "23267statics",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -64.59313204105027,
+          -10.954132327378998
+        ],
+        [
+          -62.75292146349851,
+          -10.954132327378998
+        ],
+        [
+          -62.75292146349851,
+          -9.272403927378999
+        ],
+        [
+          -64.59313204105027,
+          -9.272403927378999
+        ],
+        [
+          -64.59313204105027,
+          -10.954132327378998
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -64.59313204105027,
+    -10.954132327378998,
+    -62.75292146349851,
+    -9.272403927378999
+  ],
+  "properties": {
+    "datetime": "2026-04-16T18:14:26.183587Z"
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "data": {
+      "href": "/home/sergio/dev/github/lambdageo_new/bdc-stac/data/23267statics.tif",
+      "type": "image/tiff; application=geotiff",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "collection": "meu_datacube"
+}

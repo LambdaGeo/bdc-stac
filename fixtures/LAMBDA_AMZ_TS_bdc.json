@@ -1,0 +1,26 @@
+{
+  "name": "LAMBDA_AMZ_TS",
+  "title": "LambdaGeo Amazon Time Series",
+  "description": "Serie temporal de imagens LambdaGeo para a regiao amazonica (1997-2003).",
+  "is_available": true,
+  "version": "1",
+  "category": "eo",
+  "license": "proprietary",
+  "extent": {
+    "temporal": [
+      [
+        "1997-01-01",
+        "2003-12-31"
+      ]
+    ],
+    "spatial": [
+      [
+        -64.6,
+        -11.0,
+        -62.7,
+        -9.2
+      ]
+    ]
+  },
+  "bands": [
+    
