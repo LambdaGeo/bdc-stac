@@ -1,0 +1,96 @@
+# docker-compose.yml — BDC-STAC Local Stack (Corrigido)
+# LambdaGeo / UFMA — DisSModel Integration
+
+services:
+  # ─────────────────────────────────────────
+  # PostgreSQL + PostGIS (BDC-Catalog backend)
+  # ─────────────────────────────────────────
+  bdc-postgres:
+    image: postgis/postgis:15-3.3
+    container_name: bdc-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-bdc_catalog}
+    volumes:
+      - bdc-postgres-data:/var/lib/postgresql/data
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    networks:
+      - bdc-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-bdc_catalog}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────
+  # Database initialization (one-time setup)
+  # ─────────────────────────────────────────
+  bdc-db-init:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bdc-db-init
+    depends_on:
+      bdc-postgres:
+        condition: service_healthy
+    environment:
+      SQLALCHEMY_DATABASE_URI: ${DATABASE_URL:-postgresql://postgres:postgres@bdc-postgres:5432/bdc_catalog}
+    volumes:
+      - .:/opt/bdc-stac/1.0.2
+    working_dir: /opt/bdc-stac/1.0.2
+    networks:
+      - bdc-net
+    command: >
+      bash -c "
+        pip install -e . &&
+        bdc-db db init &&
+        bdc-db db create-namespaces &&
+        bdc-db db create-extension-postgis &&
+        bdc-db db create-schema
+      "
+    profiles:
+      - init
+    restart: "no"
+
+  # ─────────────────────────────────────────
+  # BDC-STAC API Server (Gunicorn + Flask)
+  # ─────────────────────────────────────────
+  bdc-stac:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bdc-stac
+    depends_on:
+      bdc-postgres:
+        condition: service_healthy
+    environment:
+      SQLALCHEMY_DATABASE_URI: ${DATABASE_URL:-postgresql://postgres:postgres@bdc-postgres:5432/bdc_catalog}
+      BDC_STAC_BASE_URL: ${BDC_STAC_BASE_URL:-http://localhost:8080}
+      BDC_STAC_FILE_ROOT: ${BDC_STAC_FILE_ROOT:-http://localhost:8081}
+      BDC_STAC_TITLE: ${BDC_STAC_TITLE:-LambdaGeo BDC Catalog}
+      BDC_STAC_ID: ${BDC_STAC_ID:-lambdageo-bdc}
+      BDC_STAC_MAX_LIMIT: ${BDC_STAC_MAX_LIMIT:-1000}
+    ports:
+      - "8080:5000"
+    volumes:
+      - .:/opt/bdc-stac/1.0.2
+    networks:
+      - bdc-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+networks:
+  bdc-net:
+    driver: bridge
+    name: bdc-net
+
+volumes:
+  bdc-postgres-data:
+    driver: local
