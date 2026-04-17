@@ -1,0 +1,9 @@
+Collecting shapely
+  Using cached shapely-2.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.8 kB)
+Collecting python-dotenv
+  Using cached python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)
+Requirement already satisfied: numpy>=1.21 in ./.venv/lib/python3.12/site-packages (from shapely) (2.4.4)
+Using cached shapely-2.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.1 MB)
+Using cached python_dotenv-1.2.2-py3-none-any.whl (22 kB)
+Installing collected packages: shapely, python-dotenv
+Successfully installed python-dotenv-1.2.2 shapely-2.1.2

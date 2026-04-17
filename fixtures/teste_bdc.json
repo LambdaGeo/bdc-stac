@@ -1,0 +1,73 @@
+{
+  "name": "LAMBDA_TEST",
+  "title": "Teste LambdaGeo",
+  "description": "Teste de ingestao BDC com GeoTIFF local",
+
+  "collection_type": "collection",
+  "is_available": true,
+  "is_public": true,
+
+  "version": 2,
+  "category": "eo",
+
+  "start_date": "1997-01-01T00:00:00",
+  "end_date": "1997-12-31T00:00:00",
+
+  "spatial_extent": "SRID=4326;POLYGON((-64.6 -11.0, -62.7 -11.0, -62.7 -9.2, -64.6 -9.2, -64.6 -11.0))",
+
+  "bands": [
+    {
+      "name": "B1",
+      "common_name": "blue",
+      "data_type": "uint16",
+      "nodata": 0,
+      "scale": 0.0001,
+      "mime_type": "image/tiff; application=geotiff"
+    }
+  ],
+
+  "items": [
+    {
+      "name": "23267_1997",
+
+      "start_date": "1997-06-15T00:00:00",
+      "end_date": "1997-06-15T00:00:00",
+
+      "srid": 4326,
+
+      "footprint": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-64.5931, -10.9541],
+          [-62.7529, -10.9541],
+          [-62.7529, -9.2724],
+          [-64.5931, -9.2724],
+          [-64.5931, -10.9541]
+        ]]
+      },
+
+      "bbox": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-64.5931, -10.9541],
+          [-62.7529, -10.9541],
+          [-62.7529, -9.2724],
+          [-64.5931, -9.2724],
+          [-64.5931, -10.9541]
+        ]]
+      },
+
+      "assets": {
+        "data": {
+          "href": "http://localhost:8081/assets/23267_1997.tif",
+          "type": "image/tiff; application=geotiff",
+          "bdc:size": 2450000,
+          "checksum:multihash": "1220dummyhash00000000000000000000000000000000000000000000000000000000",
+          "roles": ["data"],
+          "created": "2026-04-16T00:00:00",
+          "updated": "2026-04-16T00:00:00"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "name": "LAMBDA_AMZ_TS",
+  "title": "LambdaGeo Amazon Time Series",
+  "description": "Série temporal de imagens LambdaGeo para a região amazônica (1997-2003).",
+
+  "collection_type": "collection",
+  "is_available": true,
+  "version": 3,
+
+  "extent": {
+    "spatial": [[-64.6, -11.0, -62.7, -9.2]],
+    "temporal": [["1997-01-01T00:00:00", "2003-12-31T23:59:59"]]
+  },
+
+  "bands": [
+    {"name": "B1", "common_name": "blue",  "data_type": "int16", "mime_type": "image/tiff"},
+    {"name": "B2", "common_name": "green", "data_type": "int16", "mime_type": "image/tiff"},
+    {"name": "B3", "common_name": "red",   "data_type": "int16", "mime_type": "image/tiff"},
+    {"name": "B4", "common_name": "nir",   "data_type": "int16", "mime_type": "image/tiff"}
+  ],
+
+  "items": [
+    {
+      "name": "23267_1997",
+
+      "start_date": "1997-01-01T00:00:00",
+      "end_date": "1997-12-31T23:59:59",
+
+      "srid": 4326,
+
+      "bbox": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-64.59313204105027, -10.954132327378998],
+          [-62.75292146349851, -10.954132327378998],
+          [-62.75292146349851,  -9.272403927378999],
+          [-64.59313204105027,  -9.272403927378999],
+          [-64.59313204105027, -10.954132327378998]
+        ]]
+      },
+
+      "footprint": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-64.59313204105027, -10.954132327378998],
+          [-62.75292146349851, -10.954132327378998],
+          [-62.75292146349851,  -9.272403927378999],
+          [-64.59313204105027,  -9.272403927378999],
+          [-64.59313204105027, -10.954132327378998]
+        ]]
+      },
+
+      "assets": {
+        "data": {
+          "href": "http://localhost:8081/assets/23267_1997.tif",
+          "type": "image/tiff",
+          "roles": ["data"]
+        }
+      }
+    }
+  ]
+}

@@ -1,10 +1,7 @@
-# docker-compose.yml — BDC-STAC Local Stack (Corrigido)
-# LambdaGeo / UFMA — DisSModel Integration
+# docker-compose.yml — BDC-STAC Local Stack
+# LambdaGeo / UFMA — 2026
 
 services:
-  # ─────────────────────────────────────────
-  # PostgreSQL + PostGIS (BDC-Catalog backend)
-  # ─────────────────────────────────────────
   bdc-postgres:
     image: postgis/postgis:15-3.3
     container_name: bdc-postgres
@@ -25,39 +22,6 @@ services:
       retries: 5
     restart: unless-stopped
 
-  # ─────────────────────────────────────────
-  # Database initialization (one-time setup)
-  # ─────────────────────────────────────────
-  bdc-db-init:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: bdc-db-init
-    depends_on:
-      bdc-postgres:
-        condition: service_healthy
-    environment:
-      SQLALCHEMY_DATABASE_URI: ${DATABASE_URL:-postgresql://postgres:postgres@bdc-postgres:5432/bdc_catalog}
-    volumes:
-      - .:/opt/bdc-stac/1.0.2
-    working_dir: /opt/bdc-stac/1.0.2
-    networks:
-      - bdc-net
-    command: >
-      bash -c "
-        pip install -e . &&
-        bdc-db db init &&
-        bdc-db db create-namespaces &&
-        bdc-db db create-extension-postgis &&
-        bdc-db db create-schema
-      "
-    profiles:
-      - init
-    restart: "no"
-
-  # ─────────────────────────────────────────
-  # BDC-STAC API Server (Gunicorn + Flask)
-  # ─────────────────────────────────────────
   bdc-stac:
     build:
       context: .
@@ -85,6 +49,22 @@ services:
       timeout: 10s
       retries: 3
     restart: unless-stopped
+
+  static-assets:
+    image: nginx:alpine
+    container_name: bdc-assets
+    volumes:
+      - ./data:/usr/share/nginx/html/assets:ro
+    ports:
+      - "8081:80"
+    networks:
+      - bdc-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost/assets/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
 networks:
   bdc-net:

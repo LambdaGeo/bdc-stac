@@ -1,0 +1,268 @@
+{
+  "name": "LAMBDA_AMZ_TS",
+  "title": "LambdaGeo Amazon Time Series",
+  "description": "Serie temporal de imagens LambdaGeo para a regiao amazonica (1997-2003).",
+  "collection_type": "collection",
+  "is_available": true,
+  "is_public": true,
+  "version": 2,
+  "category": "eo",
+  "start_date": "1997-01-01",
+  "end_date": "2003-12-31",
+  "spatial_extent": "SRID=4326;POLYGON((-64.6 -11.0, -62.7 -11.0, -62.7 -9.2, -64.6 -9.2, -64.6 -11.0))",
+  "bands": [
+    {
+      "name": "B1",
+      "common_name": "blue",
+      "data_type": "uint16",
+      "nodata": 0,
+      "scale": 0.0001,
+      "mime_type": "image/tiff; application=geotiff"
+    },
+    {
+      "name": "B2",
+      "common_name": "green",
+      "data_type": "uint16",
+      "nodata": 0,
+      "scale": 0.0001,
+      "mime_type": "image/tiff; application=geotiff"
+    },
+    {
+      "name": "B3",
+      "common_name": "red",
+      "data_type": "uint16",
+      "nodata": 0,
+      "scale": 0.0001,
+      "mime_type": "image/tiff; application=geotiff"
+    },
+    {
+      "name": "B4",
+      "common_name": "nir",
+      "data_type": "uint16",
+      "nodata": 0,
+      "scale": 0.0001,
+      "mime_type": "image/tiff; application=geotiff"
+    }
+  ],
+  "items": [
+    {
+      "name": "23267_1997",
+      "start_date": "1997-06-15",
+      "end_date": "1997-06-15",
+      "srid": 4326,
+      "footprint": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ]
+          ]
+        ]
+      },
+      "bbox": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ]
+          ]
+        ]
+      },
+      "assets": {
+        "data": {
+          "href": "http://localhost:8081/assets/23267_1997.tif",
+          "type": "image/tiff; application=geotiff",
+          "bdc:size": 46418,
+          "checksum:multihash": "122089499c04e4aaadec52041669f0191c61f6f224eeca0f2c6912887252e9734877",
+          "roles": [
+            "data"
+          ],
+          "created": "2026-04-16T18:26:09.799214+00:00",
+          "updated": "2026-04-16T18:26:09.799214+00:00"
+        }
+      }
+    },
+    {
+      "name": "23267_2000",
+      "start_date": "2000-06-15",
+      "end_date": "2000-06-15",
+      "srid": 4326,
+      "footprint": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ]
+          ]
+        ]
+      },
+      "bbox": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ]
+          ]
+        ]
+      },
+      "assets": {
+        "data": {
+          "href": "http://localhost:8081/assets/23267_2000.tif",
+          "type": "image/tiff; application=geotiff",
+          "bdc:size": 48692,
+          "checksum:multihash": "122082c14cff7e50472de984b69f511dbd3dbfee3695cc91c30ecc9e48d5d891068f",
+          "roles": [
+            "data"
+          ],
+          "created": "2026-04-16T18:26:09.800821+00:00",
+          "updated": "2026-04-16T18:26:09.800821+00:00"
+        }
+      }
+    },
+    {
+      "name": "23267_2003",
+      "start_date": "2003-06-15",
+      "end_date": "2003-06-15",
+      "srid": 4326,
+      "footprint": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ]
+          ]
+        ]
+      },
+      "bbox": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -10.954132327378998
+            ],
+            [
+              -62.75292146349851,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -9.272403927378999
+            ],
+            [
+              -64.59313204105027,
+              -10.954132327378998
+            ]
+          ]
+        ]
+      },
+      "assets": {
+        "data": {
+          "href": "http://localhost:8081/assets/23267_2003.tif",
+          "type": "image/tiff; application=geotiff",
+          "bdc:size": 47650,
+          "checksum:multihash": "12200fadc03e08bb6679cd97bd20df9343cc3f4bd0822eac66c58a03d9efe4d86c79",
+          "roles": [
+            "data"
+          ],
+          "created": "2026-04-16T18:26:09.801808+00:00",
+          "updated": "2026-04-16T18:26:09.801808+00:00"
+        }
+      }
+    }
+  ]
+}

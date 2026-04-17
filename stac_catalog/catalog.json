@@ -1,0 +1,18 @@
+{
+  "type": "Catalog",
+  "id": "catalogo_local",
+  "stac_version": "1.1.0",
+  "description": "Cat\u00e1logo STAC local",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./meu_datacube/collection.json",
+      "type": "application/json"
+    }
+  ]
+}
