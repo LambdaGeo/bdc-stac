@@ -2,54 +2,46 @@
   "name": "LAMBDA_AMZ_TS",
   "title": "LambdaGeo Amazon Time Series",
   "description": "Serie temporal de imagens LambdaGeo para a regiao amazonica (1997-2003).",
+  "collection_type": "collection",
   "is_available": true,
-  "version": "1",
+  "is_public": true,
+  "version": 2,
   "category": "eo",
-  "license": "proprietary",
-  "extent": {
-    "temporal": [
-      [
-        "1997-01-01",
-        "2003-12-31"
-      ]
-    ],
-    "spatial": [
-      [
-        -64.6,
-        -11.0,
-        -62.7,
-        -9.2
-      ]
-    ]
-  },
+  "start_date": "1997-01-01",
+  "end_date": "2003-12-31",
+  "spatial_extent": "SRID=4326;POLYGON((-64.6 -11.0, -62.7 -11.0, -62.7 -9.2, -64.6 -9.2, -64.6 -11.0))",
   "bands": [
     {
       "name": "B1",
       "common_name": "blue",
       "data_type": "uint16",
       "nodata": 0,
-      "scale": 0.0001
+      "scale": 0.0001,
+      "mime_type": "image/tiff; application=geotiff"
     },
     {
       "name": "B2",
       "common_name": "green",
       "data_type": "uint16",
       "nodata": 0,
-      "scale": 0.0001
+      "scale": 0.0001,
+      "mime_type": "image/tiff; application=geotiff"
     },
     {
       "name": "B3",
       "common_name": "red",
       "data_type": "uint16",
       "nodata": 0,
-      "scale": 0.0001
+      "scale": 0.0001,
+      "mime_type": "image/tiff; application=geotiff"
     },
     {
       "name": "B4",
       "common_name": "nir",
       "data_type": "uint16",
       "nodata": 0,
-      "scale": 0.0001
+      "scale": 0.0001,
+      "mime_type": "image/tiff; application=geotiff"
     }
   ],
   "items": [
@@ -121,8 +113,8 @@
           "roles": [
             "data"
           ],
-          "created": "2026-04-16T18:24:08.248743+00:00",
-          "updated": "2026-04-16T18:24:08.248743+00:00"
+          "created": "2026-04-16T18:26:09.799214+00:00",
+          "updated": "2026-04-16T18:26:09.799214+00:00"
         }
       }
     },
@@ -194,8 +186,8 @@
           "roles": [
             "data"
           ],
-          "created": "2026-04-16T18:24:08.249639+00:00",
-          "updated": "2026-04-16T18:24:08.249639+00:00"
+          "created": "2026-04-16T18:26:09.800821+00:00",
+          "updated": "2026-04-16T18:26:09.800821+00:00"
         }
       }
     },
@@ -267,8 +259,8 @@
           "roles": [
             "data"
           ],
-          "created": "2026-04-16T18:24:08.250326+00:00",
-          "updated": "2026-04-16T18:24:08.250326+00:00"
+          "created": "2026-04-16T18:26:09.801808+00:00",
+          "updated": "2026-04-16T18:26:09.801808+00:00"
         }
       }
     }
